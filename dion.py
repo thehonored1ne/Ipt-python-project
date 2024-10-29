@@ -5,22 +5,28 @@ account = []
 expenses = []
 
 def add_account():
-    account.append((names,amount))
-
-names = input("Name: ")
-amount = float(input("Amount: ₱ "))
-print("Processing...")
-time.sleep(3)
-print("Account added successfully!")
+    if len(account) == 3:
+        print("Only 3 accounts can be added.")
+    else:
+        names = input("Name: ")
+        amount = float(input("Amount: ₱ "))
+        account.append((names, amount))
+        print("Processing...")
+        time.sleep(3)
+        print("Account added successfully!")
+        print()
 
 
 def view_account():
     if len(account) == 0:
         print("No account was currently added.")
     else:
+        print()
+        print("[ Account Information ]")
         print("List of accounts:")
         for i, (names, amount) in enumerate(account):
             print(f"{i+1}. Name: {names} | Balance: ₱ {amount}")
+        print()
 
 
 
@@ -42,14 +48,15 @@ def delete_account():
 
 
 def add_expenses():
-    expenses.append((expense, cost))
-
-print("Add expense: [shopping, food, transportation, bills etc...]")
-expense = input("Expense: ")
-cost = float(input("Cost: ₱ "))
-print("Processing...")
-time.sleep(3)
-print("Expenses added successfully!")
+    ask_user = int(input("Which account you want it to add? [1/2/3]:  "))
+    if ask_user == 1:
+        print("Add expense: [shopping, food, transportation, bills etc...]")
+        expense = input("Expense: ")
+        cost = float(input("Cost: ₱ "))
+        expenses[0].append((expense, cost))
+        print("Processing...")
+        time.sleep(3)
+        print("Expenses added successfully!")
 
 
 def view_expenses():
@@ -111,6 +118,7 @@ def main():
             break
         else:
             print("Invalid Input, Please try again.")
+
 
 if __name__ == "__main__":
     main()
