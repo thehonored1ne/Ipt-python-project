@@ -53,7 +53,7 @@ def add_expenses():
         print("Add expense: [shopping, food, transportation, bills etc...]")
         expense = input("Expense: ")
         cost = float(input("Cost: ₱ "))
-        expenses[0].append((expense, cost))
+        expenses.append((expense, cost))
         print("Processing...")
         time.sleep(3)
         print("Expenses added successfully!")
