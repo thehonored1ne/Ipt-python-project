@@ -11,7 +11,9 @@ def add_income(description, amount):
         'type': 'income'
     }
     transactions.append(transaction)
-    print(f"Income added: {description} - {amount}")
+    print("Processing...")
+    time.sleep(2)
+    print(f"Income added successfully: {description} - ₱ {amount}")
 
 def add_expense(description, amount):
     transaction = {
@@ -21,7 +23,7 @@ def add_expense(description, amount):
         'type': 'expense'
     }
     transactions.append(transaction)
-    print(f"Expense added: {description} - {amount}")
+    print(f"Expense added: {description} - ₱ {amount}")
 
 def view_balance():
     balance = sum(transaction['amount'] for transaction in transactions)
@@ -51,7 +53,7 @@ def main():
             add_income(description, amount)
         elif choice == '2':
             description = input('enter expense description: ')
-            amount = float(input('enter expense amount: '))
+            amount = float(input('enter expense amount: ₱ '))
             add_expense(description, amount)
         elif choice == '3':
             view_balance()
@@ -59,6 +61,7 @@ def main():
             view_transactions()
         elif choice == '5':
             print("Exiting...")
+            time.sleep(3)
             break
         else:
             print("Invalid choice.")
