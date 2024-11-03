@@ -3,9 +3,6 @@ import time
 
 transactions = []
 
-
-
-
 def add_income(description, amount):
     transaction = {
         'date': datetime.datetime.now(),
@@ -118,7 +115,7 @@ def main():
                         try:
                             amount = float(input("Enter Expense Amount: ₱ "))
                             if amount > cbalance:
-                                print("The amount you input exceed the current balance.")
+                                print("\033[31mThe amount you input exceed the current balance.\033[0m")
                             else:
                                 add_expense(description, amount)
                                 break  # Exit the inner loop if input is valid
